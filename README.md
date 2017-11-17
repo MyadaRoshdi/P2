@@ -1,9 +1,9 @@
 ## Project: Build a Traffic Sign Recognition Classifier
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
-**Goals:** The aim of this project is to create a Traffic signs classfier, using Deep machine learning techniques including Convolutional Neural Networks (CNN). The model here is trained and validated so it can classify traffic sign images using the [German Traffic Sign Dataset](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/5898cd6f_traffic-signs-data/traffic-signs-data.zip). After the model is trained, you will then try out your model on images of German traffic signs that you find on the web.
+**Goals:** The aim of this project is to create a Traffic signs classfier, using Deep machine learning techniques including Convolutional Neural Networks (CNN). The model here is trained and validated so it can classify traffic sign images using the [German Traffic Sign Dataset](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/5898cd6f_traffic-signs-data/traffic-signs-data.zip). After the model is trained, validated and tested, I ran the model on images of German traffic signs that was found on the web.
 
-This is my submission for the car lane detection project, which is the 2nd project in Self-driving car Nanodegree Program. 
+This is my submission for this project, which is the 2nd project in Self-driving car Nanodegree Program/Term1. 
 
 
 **Steps of this project are the following:**
