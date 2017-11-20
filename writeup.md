@@ -110,16 +110,19 @@ Here is an exploratory visualization of the data set.
 ### 3)Design and Test a Model Architecture
 
 #### 3.1) **Preprocessing:** here, I will describe how I preprocessed the image data.
- * a) grayscaling: Here I converted and image to grayscale, so now shape changed from (32X32X3) to (32X32X1), as shown below.
+* a) grayscaling: Here I converted and image to grayscale, so now shape changed from (32X32X3) to (32X32X1), as shown below.
 
 ![alt text][image3]
 
-*  b. Normalizing: Here I used the formula  _(pixel - 128)/ 128_
+* b) Normalizing: Here I used the formula  _(pixel - 128)/ 128_
 
-**Datasets Mean values BEFORE Normalization are:** 
-*Training set : 82.6775890369964 
-*Validation set: 83.55642737563775 
-*Testing set : 82.14846036120183 
+Datasets Mean values BEFORE Normalization are:
+ 
+Training set : 82.6775890369964
+ 
+Validation set: 83.55642737563775 
+
+Testing set : 82.14846036120183 
 
 **Datasets Mean values AFTER Normalization are:**
 
