@@ -158,7 +158,7 @@ X_validation size: 27840
 Percentage of Validation Set: 25.000898020762243%
 
 
-#### 3.2)**Model Architecture** In the first set of experiments, I used the original LeNet5 Architecture (described in details in the [notebook](https://github.com/MyadaRoshdi/P2/blob/master/Traffic_Sign_Classifier.ipynb)), but the Validation accuracy didn't exceed 95% , then I tried the Using Suggested Architecture in [Traffic Sign Recognition with Multi-Scale Convolutional Networks](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf), which achieved a significant improvment.
+#### 3.2) **Model Architecture** In the first set of experiments, I used the original LeNet5 Architecture (described in details in the [notebook](https://github.com/MyadaRoshdi/P2/blob/master/Traffic_Sign_Classifier.ipynb)), but the Validation accuracy didn't exceed 95% , then I tried the Using Suggested Architecture in [Traffic Sign Recognition with Multi-Scale Convolutional Networks](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf), which achieved a significant improvment.
 
 My final model consisted of the following layers as shown in the figure below:
 
