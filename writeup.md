@@ -29,6 +29,7 @@ The goals / steps of this project are the following:
 [image1]: ./Images-references/label_freq_original_training.png "Labels Visualization"
 [image2]: ./Images-references/Visualization.png "Random Images Visualization"
 [image3]: ./Images-references/Random_grayscale.png "Random grayscaling"
+[image4]: ./Images-references/Random_rotated_brighened.png "Random modified"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -124,26 +125,36 @@ Validation set: 83.55642737563775
 
 Testing set : 82.14846036120183 
 
-**Datasets Mean values AFTER Normalization are:**
+Datasets Mean values AFTER Normalization are:
 
-*Training set : -0.35408133564846533 
-*Validation set: -0.3472154111278302 
-*Testing set : -0.3582151534281105 
-*Here is an example of a traffic sign image after grayscaling.
+Training set : -0.35408133564846533
+ 
+Validation set: -0.3472154111278302 
 
-![alt text][image3]
+Testing set : -0.3582151534281105 
 
-As a last step, I normalized the image data because ...
 
-I decided to generate additional data because ... 
+**I decided to generate additional data because when I experimited on just the supported data, the Validation accuracty never exceeded 95.6%, but once I augmneted more data and used Validation dataset of around 25% from training, the Validation testing increased to 99%.
 
-To add more data to the the data set, I used the following techniques because ... 
+I used the input data processing techniques as suggested by the Lecun paper, now I have a jittered dataset by adding 2 transformed versions of randomly selected sets of the original training set, which are :
 
-Here is an example of an original image and an augmented image:
+1) Random Image Rotation between -15 and 15 degrees
 
-![alt text][image3]
+2) Random Brighness
 
-The difference between the original data set and the augmented data set is the following ... 
+The following figure shows an image after applying rotation and brighness.
+
+![alt text][image4]
+
+**NOTE:** In the notebook, you can find another method for modifying the data which is Affine transfomation, but empirically I found that removing this step enhancing the Validation accuracy.
+ 
+Now after Augmeting more data to the original data, then split 25% of them as Validation data, we get the followng datasets to train and validate the network over them.
+
+New X_train size: 111356
+
+X_validation size: 27840
+
+Percentage of Validation Set: 25.000898020762243%
 
 
 #### 3.2)**Model Architecture** Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
