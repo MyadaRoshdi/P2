@@ -91,6 +91,7 @@ Here is an exploratory visualization of the data set.
  
  * This is the label frequency chart  in the Original training dataset
 ![](./Image_references/label_freq_original_training.png)
+
 **Conclusion: ** As shown in Fig1, some classes are trained better than others, which will lead as will shown below to have some errors in testing those un-suffeciently trained classes. This will be enhanced by Data Augmentation.
 
 ### 3)Design and Test a Model Architecture
