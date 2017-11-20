@@ -26,7 +26,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./Image-references/label_freq_original_training.png "Labels Visualization"
+[image1]: ./Images-references/label_freq_original_training.png "Labels Visualization"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -95,7 +95,7 @@ Here is an exploratory visualization of the data set.
  
  * This is the label frequency chart  in the Original training dataset
  
-![alt text](image1)
+![alt text][image1]
 
 **Conclusion:** As shown in Fig1, some classes are trained better than others, which will lead as will shown below to have some errors in testing those un-suffeciently trained classes. This will be enhanced by Data Augmentation.
 
