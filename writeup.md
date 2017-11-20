@@ -24,20 +24,6 @@ The goals / steps of this project are the following:
 * Summarize the results with a written report
 
 
-[//]: # (Image References)
-
-[image1]: ./Image_references/Visualization.png "Visualization"
-[image2]: ./Image_references/Random_grayscale.png "Grayscaling"
-[image3]: ./Image_references/Random_normalized.png "Normalizing"
-[image4]: ./Image_references/label_freq_original_training.png "TrainingLabelFreq"
-
-[image3]: ./Image_references/random_noise.jpg "Random Noise"
-[image4]: ./Image_references/placeholder.png "Traffic Sign 1"
-[image5]: ./Image_references/placeholder.png "Traffic Sign 2"
-[image6]: ./Image_references/placeholder.png "Traffic Sign 3"
-[image7]: ./Image_references/placeholder.png "Traffic Sign 4"
-[image8]: ./Image_references/placeholder.png "Traffic Sign 5"
-
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
@@ -104,7 +90,7 @@ Here is an exploratory visualization of the data set.
  31  1  2  8  9  2  3 11 25  1  1 10 12 26 11 21 35  2 13 12 36 29 14 13 10]
  
  * This is the label frequency chart  in the Original training dataset
-![Fig1: TrainingLabelFreq](./Image_references/label_freq_original_training.png)
+![](./Image_references/label_freq_original_training.png)
 **Conclusion: ** As shown in Fig1, some classes are trained better than others, which will lead as will shown below to have some errors in testing those un-suffeciently trained classes. This will be enhanced by Data Augmentation.
 
 ### 3)Design and Test a Model Architecture
