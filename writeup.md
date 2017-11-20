@@ -27,6 +27,8 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./Images-references/label_freq_original_training.png "Labels Visualization"
+[image2]: ./Images-references/Visualization.png "Random Images Visualization"
+[image3]: ./Images-references/Random_grayscale.png "Random grayscaling"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -97,14 +99,33 @@ Here is an exploratory visualization of the data set.
  
 ![alt text][image1]
 
-**Conclusion:** As shown in Fig1, some classes are trained better than others, which will lead as will shown below to have some errors in testing those un-suffeciently trained classes. This will be enhanced by Data Augmentation.
+**Conclusion:** As shown in above chart, some classes are trained better than others, which will lead as will shown below to have some errors in testing those un-suffeciently trained classes. This will be enhanced by Data Augmentation.
+
+* This is Visualization of some Random images and their correspondong sign-names
+ 
+![alt text][image2]
+
+
 
 ### 3)Design and Test a Model Architecture
 
-#### 3.1) Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
+#### 3.1) **Preprocessing:** here, I will describe how I preprocessed the image data.
+##### a. grayscaling: Here I converted and image to grayscale, so now shape changed from (32X32X3) to (32X32X1), as shown below.
 
-As a first step, I decided to convert the images to grayscale because ...
+![alt text][image3]
 
+##### b. Normalizing: Here I used the formula  _(pixel - 128)/ 128_
+
+Datasets Mean values BEFORE Normalization are: 
+Training set : 82.6775890369964 
+Validation set: 83.55642737563775 
+Testing set : 82.14846036120183 
+
+Datasets Mean values AFTER Normalization are: 
+
+Training set : -0.35408133564846533 
+Validation set: -0.3472154111278302 
+Testing set : -0.3582151534281105 
 Here is an example of a traffic sign image before and after grayscaling.
 
 ![alt text][image2]
@@ -122,7 +143,7 @@ Here is an example of an original image and an augmented image:
 The difference between the original data set and the augmented data set is the following ... 
 
 
-####2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
+#### 3.2)**Model Architecture** Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
 My final model consisted of the following layers:
 
@@ -140,16 +161,16 @@ My final model consisted of the following layers:
  
 
 
-####3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+#### 3.3) **Model Training** Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 To train the model, I used an ....
 
-####4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+#### 3.4)**Solution Approach** Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
-My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+**My final model results were:**
+* **training set accuracy of ?**
+* **validation set accuracy of ?** 
+* **test set accuracy of ?**
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
