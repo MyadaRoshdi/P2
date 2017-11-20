@@ -53,9 +53,8 @@ The goals / steps of this project are the following:
 I used the pandas library to calculate summary statistics of the traffic
 signs data set:
 
-* The size of training set is ? 
-
-    Training Set:   34799 samples
+* **The size of training set is ?** 
+   Training Set:   34799 samples
 * The size of the validation set is ?
 
    Validation Set: 4410 samples
