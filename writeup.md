@@ -166,7 +166,7 @@ My final model consisted of the following layers as shown in the figure below:
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x1 RGB image   							| 
+| Input         		| 32x32x1 grayscale image   							| 
 | Convolution 5x5     	| 1x1 stride, VALID padding, outputs 28x28x6 	|
 | RELU					|												|
 | Max pooling	      	| 2x2 stride, VALID padding, outputs 14x14x6 	|			
