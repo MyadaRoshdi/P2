@@ -1,61 +1,111 @@
-#**Traffic Sign Recognition** 
+# **Traffic Sign Recognition** 
 
-##Writeup Template
+## Writeup Template
 
-###You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
-
+### That's my report that covers my work in the [Traffic signs recognition project](https://github.com/MyadaRoshdi/P2).
+1st step to use my project, download it locally:
+  - git clone https://github.com/MyadaRoshdi/P2
+  - cd P2
+2nd step, download the dataset.
+  - wget https://d17h27t6h515a5.cloudfront.net/topher/2017/February/5898cd6f_traffic-signs-data/traffic-signs-data.zip 
+  - unzip the downloaded dataset: unzip traffic-signs-data 
 ---
 
 **Build a Traffic Sign Recognition Project**
 
 The goals / steps of this project are the following:
-* Load the data set (see below for links to the project data set)
-* Explore, summarize and visualize the data set
+* Load the [data set](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/5898cd6f_traffic-signs-data/traffic-signs-data.zip)
+* Explore, summarize, visualize and shuffle the data set
+* Augment modified versions of the dataset to it
 * Design, train and test a model architecture
-* Use the model to make predictions on new images
+* Use the model to make predictions on new images (14- new images)
 * Analyze the softmax probabilities of the new images
+* Visualize the features maps of the 1st 2-layers of the Network for 2 Images, one of them never been trained for.
 * Summarize the results with a written report
 
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+[image1]: ./Image_references/Visualization.png "Visualization"
+[image2]: ./Image_references/Random_grayscale.png "Grayscaling"
+[image3]: ./Image_references/Random_normalized.png "Normalizing"
+[image4]: ./Image_references/label_freq_original_training.png "TrainingLabelFreq"
+
+[image3]: ./Image_references/random_noise.jpg "Random Noise"
+[image4]: ./Image_references/placeholder.png "Traffic Sign 1"
+[image5]: ./Image_references/placeholder.png "Traffic Sign 2"
+[image6]: ./Image_references/placeholder.png "Traffic Sign 3"
+[image7]: ./Image_references/placeholder.png "Traffic Sign 4"
+[image8]: ./Image_references/placeholder.png "Traffic Sign 5"
 
 ## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
+### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
 ---
-###Writeup / README
+### Files Submitted
 
-####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
-
-You're reading it! and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+####1. The project submission includes all required files. Detailes about submitted files can be found in details in the **Submission folders/files contents section** in the  [README](https://github.com/MyadaRoshdi/P2/blob/master/README.md) file. and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
 
 ###Data Set Summary & Exploration
 
-####1. Provide a basic summary of the data set. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
+####1. Here, I will show the  basic summary of the original data set before any modifications.
 
 I used the pandas library to calculate summary statistics of the traffic
 signs data set:
 
-* The size of training set is ?
+* The size of training set is ? 
+    Training Set:   34799 samples
 * The size of the validation set is ?
+   Validation Set: 4410 samples
 * The size of test set is ?
+   Test Set:       12630 samples  
 * The shape of a traffic sign image is ?
+   Image Shape: (32, 32, 3)
 * The number of unique classes/labels in the data set is ?
+   43 Classes
+* The percentage of Validation set out of training set is?
+   Percentage of Validation Set: 12.672777953389467%
+
+**Conclusion** As shown above the Validation is around 12.67%, which didn' give a good learning behavior, as will be shown in the next sections, After data preprocessing and Augmentation, this ratio will increase to around 25% which will dramatically affect on both Validation and Testing Accuracies.
 
 ####2. Include an exploratory visualization of the dataset.
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
+Here is an exploratory visualization of the data set. 
+* This is Sample of output classes in Training set before shuffle:
 
-![alt text][image1]
+[41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41
+ 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41
+ 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41
+ 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41
+ 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41
+ 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41
+ 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41
+ 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41
+ 41 41 41 41 41 41 41 41 41 41 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31
+ 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31
+ 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31
+ 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31
+ 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31]
+ 
+ **Conclusion** As shown above, the data is originally not randonly distributed so I will perform data shuffling.
+ 
+ * This is a sample of output classes in Tranng set after Shuffle:
+ 
+ [12 10 31 38 11  1 26 30 11 40 13  4 28  8 30  4  9  4  5 11  2 19 31  6 38
+  1 17  1  1 25 12  8  5 31  4 12 31  9 35  7 12  4  7 18 31  1 14 30  2  9
+ 27  2 40  7  5 31  4  3 31  1 28 35 33 29 15 35  8 10 12  4 14 38  7 28 42
+  7  8  7 12  8  2  4 12  8 39  1 13  1 25  6 25 35 32 35 11  3 11  8 35 13
+ 11 25  9 11  2 12 10 26  0 11 33 34  2 12  2 38  3 19 18 40 18  5  6 23 38
+ 38 14 23 16 10 38  2 34 20 13  5 12 25  8 10 38  1  9 11 10  5  1 11 16 35
+ 11 18 35 18  5 17  2 15 28  7  2 25 38  3  7  3  9 25  2 11  1 16 12  5  1
+  8 34 23 13 13  2  2 11 38  3  5 19 11 25  0  1 21 10 18 33  8 11  7 17 24
+ 10 35  3 35  1 26 35 28 16 17 16 17 22  1  0 23 15 17 12 38 22 12 12 13  5
+  1  2  7  2 25 13 31  1 15 14 12  3  7 11 35 34  2 27  1  7  3 16 29 11 10
+ 31  1  2  8  9  2  3 11 25  1  1 10 12 26 11 21 35  2 13 12 36 29 14 13 10]
+ 
+ * This is the label frequency in the Original training dataset
+![Fig1: TrainingLabelFreq][./Image_references/label_freq_original_training.png]
+**Conclusion** As shown in Fig1, some classes are trained better than others, which will lead as will shown below to have some errors in testing those un-suffeciently trained classes. This will be enhanced by Data Augmentation.
 
 ###Design and Test a Model Architecture
 

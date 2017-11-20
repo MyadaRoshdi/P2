@@ -39,8 +39,8 @@ jupyter notebook Traffic_Sign_Classifier.ipynb
 ### Submission folders/files contents:
 
 1. Traffic_Sign_Classifier.ipynb: This is the jupyter notebook includes all my work as code with detailed description, covering all the [rubric points](https://review.udacity.com/#!/rubrics/481/view)required in the project submission.
-2. Traffic_Sign_Classifier.html: the code exported as an html file.
-3. writeup.md:a writeup report either as a markdown 
+2. Traffic_Sign_Classifier.html: The code exported as an html file.
+3. writeup.md: This is the project report covering all the [rubric points](https://review.udacity.com/#!/rubrics/481/view) required for submission.
 4. README.md: A readme file with submission description (you'r currently opening).
 5. test_dataset: Contains 14- Random Images for testing , resized to 32X32X3. 
 6. un_trained_test_dataset: Contains an Image doesn't belong to any of the 43- classes and not used before in either training, validation or testing datasets.
