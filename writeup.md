@@ -55,20 +55,15 @@ signs data set:
 
 * **The size of training set is ?** 
    Training Set:   34799 samples
-* The size of the validation set is ?
-
+* **The size of the validation set is ?**
    Validation Set: 4410 samples
-* The size of test set is ?
-
+* **The size of test set is ?**
    Test Set:       12630 samples  
-* The shape of a traffic sign image is ?
-
+* **The shape of a traffic sign image is ?**
    Image Shape: (32, 32, 3)
-* The number of unique classes/labels in the data set is ?
-
+* **The number of unique classes/labels in the data set is ?**
    43 Classes
-* The percentage of Validation set out of training set is?
-
+* **The percentage of Validation set out of training set is?**
    Percentage of Validation Set: 12.672777953389467%
 
 **Conclusion: ** As shown above the Validation is around 12.67%, which didn' give a good learning behavior, as will be shown in the next sections, After data preprocessing and Augmentation, this ratio will increase to around 25% which will dramatically affect on both Validation and Testing Accuracies.
@@ -109,7 +104,7 @@ Here is an exploratory visualization of the data set.
  31  1  2  8  9  2  3 11 25  1  1 10 12 26 11 21 35  2 13 12 36 29 14 13 10]
  
  * This is the label frequency chart  in the Original training dataset
-![Fig1: TrainingLabelFreq][./Image_references/label_freq_original_training.png]
+![Fig1: TrainingLabelFreq](./Image_references/label_freq_original_training.png)
 **Conclusion: ** As shown in Fig1, some classes are trained better than others, which will lead as will shown below to have some errors in testing those un-suffeciently trained classes. This will be enhanced by Data Augmentation.
 
 ### 3)Design and Test a Model Architecture
