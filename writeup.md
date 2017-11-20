@@ -31,6 +31,21 @@ The goals / steps of this project are the following:
 [image3]: ./Images-references/Random_grayscale.png "Random grayscaling"
 [image4]: ./Images-references/Random_rotated_brighened.png "Random modified"
 [image5]: ./LeNet5_Models/2-stage-ConvNet-architecture.png "Modified LeNet5"
+[image6]: ./Images-references/14-test-images.png "14-test"
+[image7]: ./5-Softmax-per-Image/softmax1.png "softmax1"
+[image8]: ./5-Softmax-per-Image/softmax2.png "softmax2"
+[image9]: ./5-Softmax-per-Image/softmax3.png "softmax3"
+[image10]: ./5-Softmax-per-Image/softmax4.png "softmax4"
+[image11]: ./5-Softmax-per-Image/softmax5.png "softmax5"
+[image12]: ./5-Softmax-per-Image/softmax6.png "softmax6"
+[image13]: ./5-Softmax-per-Image/softmax7.png "softmax7"
+[image14]: ./5-Softmax-per-Image/softmax8.png "softmax8"
+[image15]: ./5-Softmax-per-Image/softmax9.png "softmax9"
+[image16]: ./5-Softmax-per-Image/softmax10.png "softmax10"
+[image17]: ./5-Softmax-per-Image/softmax11.png "softmax11"
+[image18]: ./5-Softmax-per-Image/softmax12.png "softmax12"
+[image19]: ./5-Softmax-per-Image/softmax13.png "softmax13"
+[image20]: ./5-Softmax-per-Image/softmax14.png "softmax14"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -357,53 +372,72 @@ Validation Accuracy = 0.999
 
 Model saved
 
-#### 3.4)**Solution Approach** Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+#### 3.4)**Solution Approach**  here are my steps to reach training set accuracy of 100% and validation accuracy of 99.9%
+
+Overall, I performed 43 experiments to achieve my results in an iterative approach: 
+* During the 1st set of experiments, I just converted dataset to grayscale and Normalize, I was using the original leNet5 that was used in the tensorflow Lab2,and started to tune the hyper-parameters (learning_rate, dropout, epochs,..etc), I couldn't achieve Validation accuracy more than 94%
+* Then I started to do Data Augmentation, through applying different filters to the dataset then Augment and shuffle, the best 3-jittered data versions was image rotation, affine transform and random brighness as described in section 3, then I got enhanced Validation accuracy reached 95.8%.
+* Then When I removed the affine transformated data and used the modified LeNet architecture described in section 3, I got Validation accuracy of 98.7%
+* Finally, when I removed the dropout layer from the modified architecture, I got Validation accuracy of 99.9%
 
 **My final model results were:**
-* **training set accuracy of ?**
-* **validation set accuracy of ?** 
-* **test set accuracy of ?**
+* **training set accuracy of 100%**
+* **validation set accuracy of 99.9%** 
+* **test set accuracy of 93.2%**
 
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
 
-If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
  
 
-###Test a Model on New Images
+### 4)Test a Model on New Images
 
-####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+#### 4.1) I downloaded 14- German traffic signs found on the web, then I resized to 32x32x3. Then after I did grayscalling and Normalization and tested the saved trained model over them.
 
-Here are five German traffic signs that I found on the web:
+Here are the 14 German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+![alt text][image6]
 
-The first image might be difficult to classify because ...
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+
+#### 4.2) Here is the  model's predictions on these new traffic signs and compare the results to predicting on the test set.  
 
 Here are the results of the prediction:
 
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+Image 1   expected class is = 1 VS predicted class is = 1
+Image 2   expected class is = 22 VS predicted class is = 22
+Image 3   expected class is = 35 VS predicted class is = 35
+Image 4   expected class is = 15 VS predicted class is = 2
+Image 5   expected class is = 37 VS predicted class is = 37
+Image 6   expected class is = 18 VS predicted class is = 18
+Image 7   expected class is = 10 VS predicted class is = 10
+Image 8   expected class is = 14 VS predicted class is = 14
+Image 9   expected class is = 33 VS predicted class is = 33
+Image 10   expected class is = 25 VS predicted class is = 25
+Image 11   expected class is = 40 VS predicted class is = 40
+Image 12   expected class is = 0 VS predicted class is = 26
+Image 13   expected class is = 28 VS predicted class is = 11
+Image 14   expected class is = 17 VS predicted class is = 17
+Error: 3
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
 
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+The model was able to correctly guess 11 of the 14 traffic signs, which gives an accuracy of 78.6%. This compares favorably to the accuracy on the test set of 93.2%.
+
+#### 4.3) Looking at the softmax probabilities for each prediction. Here I will provide the top 5 softmax probabilities for each image along with the sign type of each probability in the shape of tables.
+
+![alt text][image7]
+![alt text][image8]
+![alt text][image9]
+![alt text][image10]
+![alt text][image11]
+![alt text][image12]
+![alt text][image13]
+![alt text][image14]
+![alt text][image15]
+![alt text][image16]
+![alt text][image17]
+![alt text][image18]
+![alt text][image19]
+![alt text][image20]
 
 The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
 
