@@ -44,11 +44,11 @@ The goals / steps of this project are the following:
 ---
 ### Files Submitted
 
-####1. The project submission includes all required files. Detailes about submitted files can be found in details in the **Submission folders/files contents section** in the  [README](https://github.com/MyadaRoshdi/P2/blob/master/README.md) file. and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+#### 1. The project submission includes all required files. Detailes about submitted files can be found in details in the **Submission folders/files contents section** in the  [README](https://github.com/MyadaRoshdi/P2/blob/master/README.md) file. and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
 
-###Data Set Summary & Exploration
+### Data Set Summary & Exploration
 
-####1. Here, I will show the  basic summary of the original data set before any modifications.
+#### 1. Here, I will show the  basic summary of the original data set before any modifications.
 
 I used the pandas library to calculate summary statistics of the traffic
 signs data set:
@@ -68,7 +68,7 @@ signs data set:
 
 **Conclusion** As shown above the Validation is around 12.67%, which didn' give a good learning behavior, as will be shown in the next sections, After data preprocessing and Augmentation, this ratio will increase to around 25% which will dramatically affect on both Validation and Testing Accuracies.
 
-####2. Include an exploratory visualization of the dataset.
+#### 2. Include an exploratory visualization of the dataset.
 
 Here is an exploratory visualization of the data set. 
 * This is Sample of output classes in Training set before shuffle:
@@ -103,7 +103,7 @@ Here is an exploratory visualization of the data set.
   1  2  7  2 25 13 31  1 15 14 12  3  7 11 35 34  2 27  1  7  3 16 29 11 10
  31  1  2  8  9  2  3 11 25  1  1 10 12 26 11 21 35  2 13 12 36 29 14 13 10]
  
- * This is the label frequency in the Original training dataset
+ * This is the label frequency chart  in the Original training dataset
 ![Fig1: TrainingLabelFreq][./Image_references/label_freq_original_training.png]
 **Conclusion** As shown in Fig1, some classes are trained better than others, which will lead as will shown below to have some errors in testing those un-suffeciently trained classes. This will be enhanced by Data Augmentation.
 
