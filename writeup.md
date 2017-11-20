@@ -1,6 +1,6 @@
 # **Traffic Sign Recognition** 
 
-## Writeup Template
+## Writeup Report
 
 ### That's my report that covers my work in the [Traffic signs recognition project](https://github.com/MyadaRoshdi/P2).
 1st step to use my project, download it locally:
@@ -26,7 +26,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./Image_references/label_freq_original_training.png "Labels Visualization"
+[image1]: ./Image-references/label_freq_original_training.png "Labels Visualization"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
