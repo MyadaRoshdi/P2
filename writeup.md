@@ -110,25 +110,25 @@ Here is an exploratory visualization of the data set.
 ### 3)Design and Test a Model Architecture
 
 #### 3.1) **Preprocessing:** here, I will describe how I preprocessed the image data.
-##### a. grayscaling: Here I converted and image to grayscale, so now shape changed from (32X32X3) to (32X32X1), as shown below.
+ * a) grayscaling: Here I converted and image to grayscale, so now shape changed from (32X32X3) to (32X32X1), as shown below.
 
 ![alt text][image3]
 
-##### b. Normalizing: Here I used the formula  _(pixel - 128)/ 128_
+*  b. Normalizing: Here I used the formula  _(pixel - 128)/ 128_
 
-Datasets Mean values BEFORE Normalization are: 
-Training set : 82.6775890369964 
-Validation set: 83.55642737563775 
-Testing set : 82.14846036120183 
+**Datasets Mean values BEFORE Normalization are:** 
+*Training set : 82.6775890369964 
+*Validation set: 83.55642737563775 
+*Testing set : 82.14846036120183 
 
-Datasets Mean values AFTER Normalization are: 
+**Datasets Mean values AFTER Normalization are:**
 
-Training set : -0.35408133564846533 
-Validation set: -0.3472154111278302 
-Testing set : -0.3582151534281105 
-Here is an example of a traffic sign image before and after grayscaling.
+*Training set : -0.35408133564846533 
+*Validation set: -0.3472154111278302 
+*Testing set : -0.3582151534281105 
+*Here is an example of a traffic sign image after grayscaling.
 
-![alt text][image2]
+![alt text][image3]
 
 As a last step, I normalized the image data because ...
 
