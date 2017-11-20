@@ -30,6 +30,7 @@ The goals / steps of this project are the following:
 [image2]: ./Images-references/Visualization.png "Random Images Visualization"
 [image3]: ./Images-references/Random_grayscale.png "Random grayscaling"
 [image4]: ./Images-references/Random_rotated_brighened.png "Random modified"
+[image5]: ./LeNet5_Models/2-stage-ConvNet-architecture.png "Modified LeNet5"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -157,27 +158,204 @@ X_validation size: 27840
 Percentage of Validation Set: 25.000898020762243%
 
 
-#### 3.2)**Model Architecture** Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
+#### 3.2)**Model Architecture** In the first set of experiments, I used the original LeNet5 Architecture (described in details in the [notebook](https://github.com/MyadaRoshdi/P2/blob/master/Traffic_Sign_Classifier.ipynb)), but the Validation accuracy didn't exceed 95% , then I tried the Using Suggested Architecture in [Traffic Sign Recognition with Multi-Scale Convolutional Networks](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf), which achieved a significant improvment.
 
-My final model consisted of the following layers:
+My final model consisted of the following layers as shown in the figure below:
+
+![alt text][image5]
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
+| Input         		| 32x32x1 RGB image   							| 
+| Convolution 5x5     	| 1x1 stride, VALID padding, outputs 28x28x6 	|
 | RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
+| Max pooling	      	| 2x2 stride, VALID padding, outputs 14x14x6 	|			
+| Convolution 5x5	    | 1x1 stride, VALID padding, outputs 10x10x16   |
+| RELU                  |                                               |
+| Max pooling	      	| 2x2 stride, VALID padding, outputs 5x5x16     |
+| Convolution 5x5	    | 1x1 stride, VALID padding, outputs 1x1x400    |
+| RELU                  |                                               |
+| Flatten Conv2  	  	| Flatten layer2 o/p, i/p = 5x5x16. o/p = 400	|	
+| Flatten Conv3  	  	| Flatten layer3 o/p, i/p = 1x1x400. o/p = 400	|
+| Concatenate			| Concatenate layer2 & layer3. so now o/p = 800 |					
+| Fully connected		| Fully Connected. Input = 800. Output = 43.    |
+| Softmax				|        									|
 |						|												|
 |						|												|
  
 
 
-#### 3.3) **Model Training** Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+#### 3.3) **Model Training** All the data used here are fine tuned by expermenting.
 
-To train the model, I used an ....
+To train the model, I used the following values:
+ 
+ Type of optimizer: AdamOptimizer
+ 
+ The batch size: 150
+ 
+ number of epochs: 50
+
+ learning rate: 0.0005
+ 
+ dropout: 0.5
+ 
+ **NOTE** In the first set of experiments, I used the dropout after the last layer in the network, I tried varying the number from 0.1 and 0.9, then when I tried to remove it, the Validation accuracy enhanced from 98.7% to 99.9%. I concluded that usng dropout cannot give a benefit when the traning set is not big enough. 
+
+** Validation Accuracy per epoch is: **
+
+Training...
+
+EPOCH 1 ...
+Validation Accuracy = 0.918
+
+EPOCH 2 ...
+Validation Accuracy = 0.953
+
+EPOCH 3 ...
+Validation Accuracy = 0.976
+
+EPOCH 4 ...
+Validation Accuracy = 0.983
+
+EPOCH 5 ...
+Validation Accuracy = 0.986
+
+EPOCH 6 ...
+Validation Accuracy = 0.990
+
+EPOCH 7 ...
+Validation Accuracy = 0.992
+
+EPOCH 8 ...
+Validation Accuracy = 0.990
+
+EPOCH 9 ...
+Validation Accuracy = 0.992
+
+EPOCH 10 ...
+Validation Accuracy = 0.997
+
+EPOCH 11 ...
+Validation Accuracy = 0.994
+
+EPOCH 12 ...
+Validation Accuracy = 0.994
+
+EPOCH 13 ...
+Validation Accuracy = 0.996
+
+EPOCH 14 ...
+Validation Accuracy = 0.994
+
+EPOCH 15 ...
+Validation Accuracy = 0.997
+
+EPOCH 16 ...
+Validation Accuracy = 0.993
+
+EPOCH 17 ...
+Validation Accuracy = 0.998
+
+EPOCH 18 ...
+Validation Accuracy = 0.997
+
+EPOCH 19 ...
+Validation Accuracy = 0.996
+
+EPOCH 20 ...
+Validation Accuracy = 0.999
+
+EPOCH 21 ...
+Validation Accuracy = 0.999
+
+EPOCH 22 ...
+Validation Accuracy = 0.996
+
+EPOCH 23 ...
+Validation Accuracy = 0.999
+
+EPOCH 24 ...
+Validation Accuracy = 0.999
+
+EPOCH 25 ...
+Validation Accuracy = 0.995
+
+EPOCH 26 ...
+Validation Accuracy = 0.999
+
+EPOCH 27 ...
+Validation Accuracy = 0.999
+
+EPOCH 28 ...
+Validation Accuracy = 0.999
+
+EPOCH 29 ...
+Validation Accuracy = 0.999
+
+EPOCH 30 ...
+Validation Accuracy = 0.999
+
+EPOCH 31 ...
+Validation Accuracy = 0.999
+
+EPOCH 32 ...
+Validation Accuracy = 0.998
+
+EPOCH 33 ...
+Validation Accuracy = 0.998
+
+EPOCH 34 ...
+Validation Accuracy = 0.999
+
+EPOCH 35 ...
+Validation Accuracy = 0.999
+
+EPOCH 36 ...
+Validation Accuracy = 0.999
+
+EPOCH 37 ...
+Validation Accuracy = 0.999
+
+EPOCH 38 ...
+Validation Accuracy = 0.998
+
+EPOCH 39 ...
+Validation Accuracy = 0.999
+
+EPOCH 40 ...
+Validation Accuracy = 0.999
+
+EPOCH 41 ...
+Validation Accuracy = 0.999
+
+EPOCH 42 ...
+Validation Accuracy = 0.991
+
+EPOCH 43 ...
+Validation Accuracy = 0.999
+
+EPOCH 44 ...
+Validation Accuracy = 0.999
+
+EPOCH 45 ...
+Validation Accuracy = 0.999
+
+EPOCH 46 ...
+Validation Accuracy = 0.999
+
+EPOCH 47 ...
+Validation Accuracy = 1.000
+
+EPOCH 48 ...
+Validation Accuracy = 0.998
+
+EPOCH 49 ...
+Validation Accuracy = 0.998
+
+EPOCH 50 ...
+Validation Accuracy = 0.999
+
+Model saved
 
 #### 3.4)**Solution Approach** Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
