@@ -127,11 +127,19 @@ Here is an exploratory visualization of the data set.
 ### 3)Design and Test a Model Architecture
 
 #### 3.1) **Preprocessing:** here, I will describe how I preprocessed the image data.
-* a) grayscaling: Here I converted and image to grayscale, so now shape changed from (32X32X3) to (32X32X1), as shown below.
+* a) grayscaling: Here I converted and image to grayscale, so now shape changed from (32X32X3) to (32X32X1), as shown below. 
 
 ![alt text][image3]
 
+**Why grayscaling?**
+
+In the begining, I just converted the image to graysclale before training the network as it was suggested. I read about how grayscaled images enhance the classifier accuracy as RGB images carries some more information that may mislead the classifier learning phase, as the most important is detecting edges of the shapes not colors. Colors can be changeable easily due to many factors as weather, camera quality, ..etc, so removing these info before training and classificatio proves better performance, as described in [this](http://l.web.umkc.edu/lizhu/publications/allerton14-cdnn.pdf) paper. 
+
 * b) Normalizing: Here I used the formula  _(pixel - 128)/ 128_
+
+**Why Normalization?**
+
+Before normalization, datasets had a very big Mean values (around 82), Data with very big ranges makes the classfer is insesnsitiv to the small changes, that's why normalization did a really significant change on the Validation accuracy when tested keeping everything the same and just removed the normalization step, I got Validation accuracy = 96.4% , compared to  with normalization value of 99.9%.
 
 Datasets Mean values BEFORE Normalization are:
  
@@ -152,11 +160,13 @@ Testing set : -0.3582151534281105
 
 **I decided to generate additional data because when I experimited on just the supported data, the Validation accuracty never exceeded 95.6%, but once I augmneted more data and used Validation dataset of around 25% from training, the Validation testing increased to 99%.
 
-I used the input data processing techniques as suggested by the Lecun paper, now I have a jittered dataset by adding 2 transformed versions of randomly selected sets of the original training set, which are :
+I used the input data processing techniques as suggested by the [Lecun paper](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf), now I have a jittered dataset by adding 2 transformed versions of randomly selected sets of the original training set, which are :
 
 1) Random Image Rotation between -15 and 15 degrees
 
 2) Random Brighness
+
+**NOTE:** The previous modification are all empirically chosen.
 
 The following figure shows an image after applying rotation and brighness.
 
@@ -397,6 +407,7 @@ Here are the 14 German traffic signs that I found on the web:
 ![alt text][image6]
 
 
+**NOTE:**  Some of this images are expected to not successfully trained as they belong to the signs that not trained enough as shown in the labels frequency diagram shown above. A suggested solution for this problem is in the future work part in the jupyter notebook.
 
 #### 4.2) Here is the  model's predictions on these new traffic signs and compare the results to predicting on the test set.  
 
